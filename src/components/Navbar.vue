@@ -29,7 +29,6 @@
 </template>
 
 <script>
-import { link } from "fs";
 export default {
   data() {
     return {
