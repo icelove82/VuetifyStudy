@@ -40,7 +40,6 @@ export default {
 
       changes.forEach(change => {
         if (change.type === "added") {
-          debugger;
           this.projects.push({
             ...change.doc.data(),
             id: change.doc.id

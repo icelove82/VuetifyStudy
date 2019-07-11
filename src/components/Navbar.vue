@@ -13,6 +13,8 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
 
+      <v-switch v-model="isLight" color="black"></v-switch>
+
       <v-menu offset-y>
         <v-btn flat slot="activator" color="grey">
           <v-icon left>expand_more</v-icon>
@@ -69,8 +71,14 @@ export default {
         { icon: "folder", text: "My Projects", route: "/projects" },
         { icon: "person", text: "Team", route: "/team" }
       ],
-      snackbar: false
+      snackbar: false,
+      isLight: true
     };
+  },
+  watch: {
+    isLight() {
+      this.$emit("themeChange", this.isLight ? 0 : 1);
+    }
   }
 };
 </script>
