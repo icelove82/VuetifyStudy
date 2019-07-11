@@ -1,5 +1,5 @@
 <template>
-  <v-app :dark="isDark" :class="classValue">
+  <v-app :dark="isDark" :class="{ grey : !isDark}" class="lighten-4">
     <Navbar @themeChange="makeTheme"></Navbar>
     <v-content class="mx-4 mb-4">
       <router-view></router-view>
@@ -15,20 +15,15 @@ export default {
   components: { Navbar },
   data() {
     return {
-      isDark: false,
-      lightClass: "grey lighten-4",
-      darkClass: "lighten-4",
-      classValue: this.lightClass
+      isDark: false
     };
   },
   methods: {
     makeTheme(value) {
       if (value == 0) {
         this.isDark = false;
-        this.classValue = this.lightClass;
       } else {
         this.isDark = true;
-        this.classValue = this.darkClass;
       }
     }
   }
